@@ -1,0 +1,44 @@
+﻿@using IMStore.Entities
+
+@model IEnumerable<IMStore.Entities.Products>
+
+<h3>Продукти</h3>
+
+@using (Html.BeginForm("Index", "UserProducts", FormMethod.Post))
+{
+    <div>
+        Търсете продукт по категория @Html.TextBox("searchText")
+        <input id="Submit1" type="submit" value="Търси"/>
+    </div>
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <img src="@item.PictureURL" class="card-img-top" alt="company_logo" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <hr />
+                    <h5 class="card-title">Цена: @item.Price лв.</h5>
+                    <p class="card-text">
+                        Наличност:
+                        @if (item.Availability) 
+                        {
+                            <span class="badge bg-success">Наличен</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Изчерпан</span>
+                        }
+                    </p>
+                    <h5 class="card-title">Категория: @item.CategoryName</h5>
+                    <p class="card-text">@item.Description</p>
+                    <a href="#" class="btn btn-primary">Добави в количка</a>
+                    <a href="#" class="btn btn-success">Купи</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

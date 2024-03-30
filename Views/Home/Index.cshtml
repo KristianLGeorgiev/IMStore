@@ -1,0 +1,59 @@
+﻿@using IMStore.Entities
+@model IEnumerable<IMStore.Entities.Brands>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--Home rendered for all users-->
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+<!-- Hero Section Design -->
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">Добре дошли в <strong>I&MStore</strong></h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">В нашия магазин ще намерите черна и бяла техника за вашите нужди. Всичко на едно място.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="~/Identity/Account/Register/">Регистрирай се</a>
+            <a class="btn btn-outline-secondary btn-lg px-4" href="~/Identity/Account/Login/">Влез</a>
+        </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+        <div class="container px-5">
+            <img src="https://business-catalog.bg/uploads/2016/04/27/65e8531590f7256100fd3680b5b452bc.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+        </div>
+    </div>
+</div>
+
+<!-- Suppliers section -->
+<h1 class="display-4 text-center">Фирми</h1>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <img src="@item.BrandLogo" class="card-img-top" alt="company_logo"/>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <a href="#" class="btn btn-primary">Виж продукти</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Contact us section-->
+<div class="jumbotron">
+    <h1 class="display-4 text-center">Свържете се с нас</h1>
+    <p class="lead">Ние сме дистрибутoри на продукти от цяла България. Желаете да станем партньори? Пишете ни на имейл или се обадете.</p>
+    <hr class="my-4">
+    <p class="lead">Имейл за връзка: <strong>imstore@email.bg</strong></p>
+    <p class="lead">Телефон за контакт: <strong>00000000000</strong></p>
+</div>
+
+

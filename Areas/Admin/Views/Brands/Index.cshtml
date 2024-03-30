@@ -1,0 +1,53 @@
+﻿@model IEnumerable<IMStore.Entities.Brands>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Фирми</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-primary">Добави</a>
+</p>
+<table class="table table-striped table-hover table-bordered align-middle">
+    <thead class="table-dark align-middle">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandLogo)
+            </th>
+            <th>Избери операция</th>
+            <th>Виж категориите</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandLogo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary" style="margin:5px;">Редактирай</a> 
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info" style="margin: 5px;">Детайли</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" style="margin: 5px;">Изтрии</a>
+              
+
+            </td>
+            <td>
+                    <a asp-controller="Categories" asp-action="Index" asp-route-categoryId="@item.Id" class="btn btn-secondary" style="margin: 5px;">Категории</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
