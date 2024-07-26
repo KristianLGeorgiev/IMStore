@@ -1,6 +1,6 @@
 # IMStore
 First web project with MVC C# (.NET 8) <br>
 Online shop for buying all kinds of tech. <br>
-Still work in progress.
+Still work in progress. <br>
 <b>Update: Project closed</b>
 
